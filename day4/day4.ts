@@ -19,14 +19,12 @@ function parseCards(lines: string[]): Card[] {
 
 function countWinningNumbers(cards: Card[]): number {
 
-  const counts = cards.map((card) => {
+  return cards.map((card) => {
     if(card.matches === 0) {
       return 0
     }
     return Math.pow(2, card.matches - 1)
-  })
-
-  return counts.reduce((a, b) => a + b, 0)
+  }).reduce((a, b) => a + b, 0)
 }
 
 function solvePartTwo(cards: Card[]) {
