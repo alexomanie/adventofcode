@@ -1,5 +1,4 @@
 import { readFile } from "../utils.ts";
-import findClosestLocationNumber from "./alternative.ts";
 
 type SubStep = {
   source: number,
@@ -85,7 +84,6 @@ function solvePartOne(seeds: number[], allSteps: AllSteps): number {
 
 function partOne() {
   const lines = readFile("input.txt"); 
-  findClosestLocationNumber(lines)
   const seeds = lines.shift()!.split(":")[1]
   const seedNumbers = [...seeds.trim().matchAll(/\d+/g)].map((match) => Number(match[0]))
   const allSteps = extractAllSteps(lines)
