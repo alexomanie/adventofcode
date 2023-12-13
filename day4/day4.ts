@@ -1,4 +1,4 @@
-import { readFile } from "../utils.ts";
+import { readFileAsLineArray } from "../utils.ts";
 
 type Card = {
   matches: number
@@ -43,13 +43,13 @@ function solvePartTwo(cards: Card[]) {
 }
 
 function partOne() {
-  const lines = readFile("input.txt");
+  const lines = readFileAsLineArray("input.txt");
   const cards = parseCards(lines);
   console.log(countWinningNumbers(cards))
 }
 
 function partTwo() {
-  const lines = readFile("input.txt");
+  const lines = readFileAsLineArray("input.txt");
   const cards = parseCards(lines);
   console.log(solvePartTwo(cards))
 }

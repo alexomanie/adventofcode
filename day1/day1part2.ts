@@ -14,17 +14,6 @@ async function readFileLineByLine(path: string): Promise<string[]> {
   return lines;
 }
 
-function combineFirstAndLastDigitFromString(input: string): number {
-  const digitsInString = [...input.matchAll(/\d/g)].map((x) => x[0]);
-  if(digitsInString.length < 1) {
-    return 0
-  }
-  console.log(digitsInString)
-  const combined = digitsInString[0] + digitsInString[digitsInString.length - 1];
-
-  return parseInt(combined);
-}
-
 function findWrittenDigitsInString(input: string): number {
   const  regExp = new RegExp(`(${digits.join("|")})|(\\d)`, "gi");
   const finds = []
@@ -45,7 +34,6 @@ async function run(): Promise<number> {
   //let sum = 0;
   let sum2 = 0;
   for await (const line of lines) {
-    //sum += combineFirstAndLastDigitFromString(line);
     sum2 += findWrittenDigitsInString(line);
   }
   //console.log(sum)
